@@ -1,0 +1,29 @@
+<pubmedarticle>
+  <medlinecitation status="MEDLINE" owner="NLM">
+    <pmid version="1">12345678</pmid>
+    <article pubmodel="Print">
+      <articletitle>A Study on Mock Data</articletitle>
+      <authorlist completeyn="Y">
+        <author validyn="Y">
+          <lastname>Doe</lastname>
+          <forename>John A.</forename>
+        </author>
+      </authorlist>
+      <abstract>
+        <abstracttext>This is the abstract of the mock study. It summarizes the main findings.</abstracttext>
+      </abstract>
+      <journal>
+        <title>Journal of Mock Research</title>
+        <pubdate>
+            <year>2023</year>
+            <month>Jan</month>
+        </pubdate>
+      </journal>
+    </article>
+    <meshheadinglist>
+      <meshheading>
+        <descriptorname majortopicyn="N">Mock Data</descriptorname>
+      </meshheading>
+    </meshheadinglist>
+  </medlinecitation>
+</pubmedarticle>
