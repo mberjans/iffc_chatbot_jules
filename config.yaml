@@ -1,0 +1,61 @@
+# Sample Configuration for LightRAG application
+
+# API keys - it's recommended to use environment variables for sensitive keys in production
+# For example, set OPENAI_API_KEY in your environment.
+# This section is for keys that might not have standard env var names or for non-sensitive IDs.
+api_keys:
+  huggingface_hub_token: "YOUR_HUGGINGFACE_HUB_TOKEN_IF_NEEDED" # Or set via HUGGINGFACE_HUB_TOKEN env var
+  openai_api_key: "YOUR_OPENAI_API_KEY_IF_NEEDED" # Or set via OPENAI_API_KEY env var
+
+# LLM Model configurations
+# You can define multiple models and choose one in your application logic
+llm_models:
+  default_llm:
+    provider: "huggingface_pipeline" # or "openai", "anthropic", "ollama", etc.
+    model_name: "sentence-transformers/all-MiniLM-L6-v2" # Example, replace with actual LLM for generation
+    # model_name: "mistralai/Mistral-7B-Instruct-v0.1" # A more typical generative LLM
+    # For HuggingFace models, you might specify task, device, etc.
+    task: "text-generation" # Example, depends on the HuggingFace pipeline
+    model_kwargs:
+      max_length: 512
+      temperature: 0.7
+      # trust_remote_code: True # If needed for some models
+
+  # Example for an OpenAI model (if you were to use it)
+  # openai_gpt3:
+  #   provider: "openai"
+  #   model_name: "gpt-3.5-turbo"
+  #   # api_key can be sourced from api_keys.openai_api_key or OPENAI_API_KEY env var
+  #   model_kwargs:
+  #     temperature: 0.5
+
+embedding_models:
+  default_embedding:
+    provider: "huggingface_sentence_transformers" # or "openai_embeddings", "huggingface_tei"
+    model_name: "sentence-transformers/all-MiniLM-L6-v2" # A common choice for embeddings
+    # For SentenceTransformers, model_kwargs might include device settings
+    model_kwargs:
+      device: "cpu" # "cuda" if GPU is available
+
+  # Example for OpenAI embeddings
+  # openai_ada:
+  #   provider: "openai_embeddings"
+  #   model_name: "text-embedding-ada-002"
+  #   # api_key can be sourced from api_keys.openai_api_key or OPENAI_API_KEY env var
+
+# Vector Database configuration (example for a local persistent DB)
+vector_database:
+  provider: "nano_vectordb" # Or "chromadb", "faiss", etc.
+  path: "./vector_db_storage" # Path for persistent storage
+  collection_name: "my_knowledge_graph"
+
+# Paths for data processing
+data_paths:
+  xml_input_directory: "./data/xml_input"
+  processed_output_directory: "./data/processed_output"
+
+# Other application settings
+settings:
+  log_level: "INFO" # DEBUG, INFO, WARNING, ERROR
+  chunk_size: 512
+  chunk_overlap: 64
