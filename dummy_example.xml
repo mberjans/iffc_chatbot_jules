@@ -1,0 +1,21 @@
+
+    <root>
+        <doc>
+            <title>Document 1 Title</title>
+            <paragraph>This is the first paragraph of document 1. It contains some text.</paragraph>
+            <paragraph>This is another paragraph. It provides more information.</paragraph>
+        </doc>
+        <doc>
+            <title>Document 2 Title</title>
+            <section>
+                <heading>Section 1</heading>
+                <content>Content of section 1.</content>
+            </section>
+            <section>
+                <heading>Section 2</heading>
+                <item>Item A</item>
+                <item>Item B</item>
+            </section>
+            <sometail>text in tail</sometail>after tail text.
+        </doc>
+    </root>
