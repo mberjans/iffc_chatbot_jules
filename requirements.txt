@@ -16,3 +16,8 @@ lightrag==0.1.0b6
       urllib3==2.4.0
       certifi==2025.4.26
   tqdm==4.67.1
+networkx
+spacy
+sentence-transformers
+faiss-cpu
+pubmed_parser
